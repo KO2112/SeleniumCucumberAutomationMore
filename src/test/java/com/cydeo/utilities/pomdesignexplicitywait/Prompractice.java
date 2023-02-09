@@ -19,7 +19,7 @@ public class Prompractice {
     public void requires_field_error_message_test(){
         libaryLoginPage.signInButton.click();
         Assert.assertTrue(libaryLoginPage.errorMessage.isDisplayed());
-        Driver.closedriver();
+//        Driver.closedriver();
     }
 
     @Test
