@@ -29,7 +29,7 @@ public class Driver {
                     driver.manage().window().maximize();
                     break;
                 case "firefox":
-                    System.setProperty("geckodriver.exe", "C:\\Users\\kemal\\Desktop\\Testing\\SeleniumCucumberAutomationMore\\SeleniumCucumberAutomationMore\\geckodriver.exe");
+                    System.setProperty("webdriver.gecko.driver", "C:\\Users\\kemal\\Desktop\\Testing\\SeleniumCucumberAutomationMore\\SeleniumCucumberAutomationMore\\geckodriver.exe");
                     driver = new FirefoxDriver();
                     driver.manage().window().maximize();
                     break;
