@@ -19,7 +19,7 @@ public class Driver {
             String browsertype = ConfigurationReader.getProperty("browser");
             switch (browsertype){
                 case "chrome":
-                    System.setProperty("webdriver.chrome.driver", "C:\\Users\\kemal\\IdeaProjects\\BasicNavigationTestss\\chromedriver.exe");
+                    System.setProperty("webdriver.chrome.driver", "C:\\Users\\kemal\\Desktop\\Testing\\SeleniumCucumberAutomationMore\\SeleniumCucumberAutomationMore\\chromedriver.exe");
                     driver = new ChromeDriver();
                     driver.manage().window().maximize();
                     break;

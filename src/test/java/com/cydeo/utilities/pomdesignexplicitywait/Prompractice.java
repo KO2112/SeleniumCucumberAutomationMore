@@ -15,7 +15,7 @@ public class Prompractice {
         libaryLoginPage = new LibaryLoginPage();
     }
 
-    @Test
+    @Test(invocationCount = 5)
     public void requires_field_error_message_test(){
         libaryLoginPage.signInButton.click();
         Assert.assertTrue(libaryLoginPage.errorMessage.isDisplayed());
