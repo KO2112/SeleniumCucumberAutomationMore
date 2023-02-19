@@ -1,10 +1,13 @@
 package com.cydeo.step_definition;
 
 
+import com.cydeo.utilities.Properties.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
 import io.cucumber.java.Before;
 import io.cucumber.java.BeforeStep;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 public class Hooks {
 //in the class we will be able to pass pre conditions and post to each scenario and each step
@@ -25,8 +28,10 @@ public class Hooks {
     }
     @After
     public void tearDownScenario(){
-        System.out.println("==== closing browser using cucumber after");
-        System.out.println("=== Scenario ended/ Take screenshot if failed");
+        byte[] screenshot = ((TakesScreenshot)Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+        Driver.closedriver();
+//        System.out.println("==== closing browser using cucumber after");
+//        System.out.println("=== Scenario ended/ Take screenshot if failed");
     }
 
     @BeforeStep
