@@ -2,6 +2,7 @@ package com.cydeo.step_definition;
 
 import com.cydeo.utilities.Pages.GoogleSearchPage;
 import com.cydeo.utilities.Properties.Driver;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;

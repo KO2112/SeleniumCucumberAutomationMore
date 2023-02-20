@@ -26,4 +26,12 @@ public class Wiki_StepDefinitions {
     public void user_sees_is_in_the_wiki_title(String string) {
         Assert.assertTrue(Driver.getDriver().getTitle().contains(string));
     }
+
+    @Then("User sees {string} is in the main header")
+    public void userSeesSteveJobsIsInTheMainHeader(String string) {
+        Assert.assertTrue(wikiSearchPage.header.isDisplayed());
+        Assert.assertTrue(wikiSearchPage.header.getText().equals(string));
+    }
+
+
 }

@@ -2,10 +2,7 @@ package com.cydeo.step_definition;
 
 
 import com.cydeo.utilities.Properties.Driver;
-import io.cucumber.java.After;
-import io.cucumber.java.AfterStep;
-import io.cucumber.java.Before;
-import io.cucumber.java.BeforeStep;
+import io.cucumber.java.*;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
@@ -27,11 +24,13 @@ public class Hooks {
         System.out.println("====== this will only apply to scenarios with DB tag");
     }
     @After
-    public void tearDownScenario(){
-        byte[] screenshot = ((TakesScreenshot)Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+    public void tearDownScenario(Scenario scenario){
+        if (scenario.isFailed()) {
+            byte[] screenshot = ((TakesScreenshot)Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshot,"image/png",scenario.getName());
+        }
         Driver.closedriver();
-//        System.out.println("==== closing browser using cucumber after");
-//        System.out.println("=== Scenario ended/ Take screenshot if failed");
+
     }
 
     @BeforeStep
