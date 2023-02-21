@@ -9,6 +9,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.testng.Assert;
 
+import java.util.Map;
+
 public class WebTablesStepDefinitions {
     WebTableLoginPage webTableLoginPage = new WebTableLoginPage();
     @Given("user is on the login page of web table app")
@@ -36,6 +38,12 @@ public class WebTablesStepDefinitions {
     @When("user enters username {string} password {string} and logins")
     public void userEntersUsernamePasswordAndLogins(String username, String password) {
         webTableLoginPage.login(username,password);
+    }
+    @When("User enters below credentials")
+    public void user_enters_below_credentials(Map<String,String> credentials) {
+//        webTableLoginPage.inputusernamee.sendKeys(credentials.get("username"));
+//        webTableLoginPage.inputpassword.sendKeys(credentials.get("password"));
+        webTableLoginPage.login(credentials.get("username"),credentials.get("password"));
     }
 }
 
