@@ -10,16 +10,16 @@ public class Hooks {
 //in the class we will be able to pass pre conditions and post to each scenario and each step
 
     //import from i.o cucumber java not junit
-    @Before(order = 1)
+    //@Before(order = 1)
     public void setupScenario(){
         System.out.println("==== setting up browser using cucumber @Before");
     }
-    @Before(value = "@Login", order = 2)
+    //@Before(value = "@Login", order = 2)
     public void setUpScenarioForLogins(){
         System.out.println("======this will only apply to scenarios with @Login tag");
 
     }
-    @Before(value = "@db",order = 0)
+    //@Before(value = "@db",order = 0)
     public void setupForDataBaseScenarios(){
         System.out.println("====== this will only apply to scenarios with DB tag");
     }
@@ -33,11 +33,11 @@ public class Hooks {
 
     }
 
-    @BeforeStep
+    //@BeforeStep
     public void setupstep(){
         System.out.println("------applying setup using @BeforeStep");
     }
-    @AfterStep
+    //@AfterStep
     public void afterstep(){
         System.out.println("------> applying tearDown using @AfterStep");
     }
