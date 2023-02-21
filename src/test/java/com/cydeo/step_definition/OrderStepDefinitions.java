@@ -1,5 +1,6 @@
 package com.cydeo.step_definition;
 
+import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.Pages.BasePage;
 import com.cydeo.utilities.Pages.OrderPage;
 import com.cydeo.utilities.Pages.WebTableLoginPage;
@@ -9,7 +10,10 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+
+import java.util.List;
 
 public class OrderStepDefinitions {
     WebTableLoginPage webTableLoginPage = new WebTableLoginPage();
@@ -35,31 +39,33 @@ public class OrderStepDefinitions {
     public void userEntersQuantity(int arg0) {
         // accepting integer argument and sending it using sendkeys method
         // we concating with ""
+        orderPage.inputquantitiy.clear();
         orderPage.inputquantitiy.sendKeys(arg0+"");
     }
     @When("user enters costumer name {string}")
     public void user_enters_costumer_name(String string) {
-
+        orderPage.inputname.sendKeys(string);
     }
     @When("user enters street {string}")
     public void user_enters_street(String string) {
-
+        orderPage.inputstreet.sendKeys(string);
     }
     @When("user enters city {string}")
     public void user_enters_city(String string) {
-
+        orderPage.inputcity.sendKeys(string);
     }
     @When("user enters state {string}")
     public void user_enters_state(String string) {
-
+        orderPage.inputstate.sendKeys(string);
     }
     @When("user enters zipcode {string}")
     public void user_enters_zipcode(String string) {
-
+        orderPage.inputzip.sendKeys(string);
     }
     @When("user selects credit card type {string}")
-    public void user_selects_credit_card_type(String string) {
-
+    public void user_selects_credit_card_type(String expectedCardType) {
+        List<WebElement> cardtypes = orderPage.cardType;
+        BrowserUtils.clickRadioButton(cardtypes,expectedCardType);
     }
     @When("user enters credit card number {string}")
     public void user_enters_credit_card_number(String string) {

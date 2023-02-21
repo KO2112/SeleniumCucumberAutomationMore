@@ -24,11 +24,12 @@ public class Hooks {
         System.out.println("====== this will only apply to scenarios with DB tag");
     }
     @After
-    public void tearDownScenario(Scenario scenario){
+    public void tearDownScenario(Scenario scenario)throws InterruptedException{
         if (scenario.isFailed()) {
             byte[] screenshot = ((TakesScreenshot)Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot,"image/png",scenario.getName());
         }
+        Thread.sleep(4000);
         Driver.closedriver();
 
     }

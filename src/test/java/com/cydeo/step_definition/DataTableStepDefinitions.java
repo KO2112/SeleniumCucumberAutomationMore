@@ -25,7 +25,7 @@ public class DataTableStepDefinitions {
     }
     @Then("User should see below info in month dropdown")
     public void user_should_see_below_info_in_month_dropdown(List<String> expectedmonth) {
-       List<String> actualoptionsstring = BrowserUtils.dropdownOptionsasstring(dropdownsPage.dropdownlist);
+       List<String> actualoptionsstring = BrowserUtils.dropdownOptionsAsString(dropdownsPage.dropdownlist);
         Assert.assertEquals(expectedmonth,actualoptionsstring);
     }
 }

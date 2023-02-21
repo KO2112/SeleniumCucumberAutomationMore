@@ -32,7 +32,7 @@ public class WebTablesStepDefinitions {
     }
     @Then("user should see url contains orders")
     public void user_should_see_url_contains_orders(){
-        BrowserUtils.verifyURL("orders");
+        BrowserUtils.verifyURLContains("orders");
     }
 
     @When("user enters username {string} password {string} and logins")
