@@ -14,7 +14,7 @@ Feature: Wikipedia search functionallity and verification
     And User clicks wiki search button
     Then User sees "Steve Jobs" is in the main header
 
-    @ScenarioOutline
+    @soccer
   Scenario Outline: Wikipedia Search Functionality Title Verification
     Given User is on wikipedia home page
     When User types "<searchValue>" home page
