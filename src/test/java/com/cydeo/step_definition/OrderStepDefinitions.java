@@ -4,6 +4,7 @@ import com.cydeo.utilities.BrowserUtils;
 import com.cydeo.utilities.Pages.BasePage;
 import com.cydeo.utilities.Pages.OrderPage;
 import com.cydeo.utilities.Pages.WebTableLoginPage;
+import com.cydeo.utilities.Pages.WivewAllOrdersPage;
 import com.cydeo.utilities.Properties.ConfigurationReader;
 import com.cydeo.utilities.Properties.Driver;
 import io.cucumber.java.en.And;
@@ -12,6 +13,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 import java.util.List;
 
@@ -19,6 +21,7 @@ public class OrderStepDefinitions {
     WebTableLoginPage webTableLoginPage = new WebTableLoginPage();
     BasePage basePage = new BasePage();
     OrderPage orderPage = new OrderPage();
+    WivewAllOrdersPage wivewAllOrdersPage = new WivewAllOrdersPage();
     @Given("user is already logged in and on order page")
     public void user_is_already_logged_in_and_on_order_page() {
         Driver.getDriver().get(ConfigurationReader.getProperty("web.table.url"));
@@ -69,18 +72,18 @@ public class OrderStepDefinitions {
     }
     @When("user enters credit card number {string}")
     public void user_enters_credit_card_number(String string) {
-
+        orderPage.inputCard.sendKeys(string);
     }
     @When("user enters expiry date {string}")
     public void user_enters_expiry_date(String string) {
-
+        orderPage.inputCardExp.sendKeys(string);
     }
     @When("user enters process order button")
     public void user_enters_process_order_button() {
-
+        orderPage.buttonProcessOrder.click();
     }
     @Then("user should see {string} in first row of the web table")
     public void user_should_see_in_first_row_of_the_web_table(String string) {
-
+        Assert.assertTrue(wivewAllOrdersPage.newCustomersCell.isDisplayed());
     }
 }

@@ -31,4 +31,6 @@ public class OrderPage extends BasePage{
     public WebElement inputCard;
     @FindBy(css = "button[type='submit']")
     public WebElement buttonProcessOrder;
+    @FindBy(name = "cardExp")
+    public WebElement inputCardExp;
 }
