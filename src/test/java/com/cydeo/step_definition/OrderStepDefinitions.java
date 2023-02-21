@@ -83,7 +83,7 @@ public class OrderStepDefinitions {
         orderPage.buttonProcessOrder.click();
     }
     @Then("user should see {string} in first row of the web table")
-    public void user_should_see_in_first_row_of_the_web_table(String string) {
-        Assert.assertTrue(wivewAllOrdersPage.newCustomersCell.isDisplayed());
+    public void user_should_see_in_first_row_of_the_web_table(String expected) {
+        Assert.assertEquals(wivewAllOrdersPage.newCustomersCell.getText(),expected);
     }
 }
